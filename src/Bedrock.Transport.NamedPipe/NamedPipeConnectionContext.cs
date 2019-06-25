@@ -2,21 +2,24 @@
 using Microsoft.AspNetCore.Http.Features;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.IO.Pipelines;
-using System.Text;
 
-namespace NamedPipeEchoServer
+namespace Bedrock.Transport.NamedPipe
 {
     internal class NamedPipeConnectionContext : ConnectionContext
     {
         private IDuplexPipe _transport;
-
-        public NamedPipeConnectionContext(IDuplexPipe duplexPipe)
+        private string _connectionId;
+        public NamedPipeConnectionContext(Stream stream)
         {
+            var pipeReader = PipeReader.Create(stream);
+            var pipeWriter = PipeWriter.Create(stream);
+            var duplexPipe = new DuplexPipe(pipeReader, pipeWriter);
             _transport = duplexPipe;
         }
 
-        public override string ConnectionId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string ConnectionId { get => _connectionId; set => _connectionId = value; }
 
         public override IFeatureCollection Features => new FeatureCollection();
 

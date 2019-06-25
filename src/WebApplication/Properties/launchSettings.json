@@ -1,0 +1,11 @@
+﻿{
+  "profiles": {
+    "WebApplication": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

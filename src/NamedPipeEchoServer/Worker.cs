@@ -1,3 +1,4 @@
+using Bedrock.Transport.NamedPipe;
 using Microsoft.AspNetCore.Connections;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;

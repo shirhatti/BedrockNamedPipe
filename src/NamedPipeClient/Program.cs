@@ -2,7 +2,6 @@
 using System.Buffers;
 using System.IO.Pipelines;
 using System.IO.Pipes;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,7 +22,7 @@ namespace NamedPipeClient
                 {
                     break;
                 }
-
+                inputLine = "GET / HTTP/1.0\r\n\r\n";
                 var writeResult = await pipeWriter.WriteAsync(Encoding.Default.GetBytes(inputLine));
                 if (writeResult.IsCompleted)
                 {

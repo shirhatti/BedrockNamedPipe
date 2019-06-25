@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.0.0-preview6.19304.6" />
+    <ProjectReference Include="..\Bedrock.Transport.NamedPipe\Bedrock.Transport.NamedPipe.csproj" />
   </ItemGroup>
 </Project>
